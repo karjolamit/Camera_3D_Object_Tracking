@@ -41,7 +41,7 @@ Computed the time-to-collision (TTC) in seconds for all matched 3D objects using
 ![Lidar_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Image.png)
 
 ![Lidar_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Equations.png)
-
+Figure Reference: Udacity
 
 ## MP.3 Associate Keypoint Correspondences with Bounding Boxes
 ## MP.4 Compute Camera-based TTC
