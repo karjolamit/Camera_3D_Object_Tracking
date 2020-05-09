@@ -48,8 +48,24 @@ For calculating the TTC, it is necessary to find the distance to the closest Lid
 
 ``` TTC = (1.0/framerate)*currXMean/(prevXMean - currXMean) ```
 
+Following code represents TTC calculation:
+
+```
+void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
+                     std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC)
+{
+    sortLidarPointsX(lidarPointsPrev);
+    sortLidarPointsX(lidarPointsCurr);
+    double d0 = lidarPointsPrev[lidarPointsPrev.size()/2].x;
+    double d1 = lidarPointsCurr[lidarPointsCurr.size()/2].x;
+    TTC = d1 * (1.0 / frameRate) / (d0 - d1);
+}
+
+```
 
 ## MP.3 Associate Keypoint Correspondences with Bounding Boxes
+
+
 ## MP.4 Compute Camera-based TTC
 ## MP.5 Performance Evaluation 1
 ## MP.6 Performance Evaluation 2
