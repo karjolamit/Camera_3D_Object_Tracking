@@ -38,6 +38,10 @@ void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bb
 ## MP.2 Compute Lidar-based TTC
 Computed the time-to-collision (TTC) in seconds for all matched 3D objects using only ```Lidar measurements``` from the matched bounding boxes between current and previous frame. Following images show the Lidar measurements and equations used to calculate TTC.
 
+![Lidar_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Image.png)
+
+![Lidar_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Equations.png)
+
 
 ## MP.3 Associate Keypoint Correspondences with Bounding Boxes
 ## MP.4 Compute Camera-based TTC
