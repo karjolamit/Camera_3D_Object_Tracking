@@ -44,7 +44,7 @@ Computed the time-to-collision (TTC) in seconds for all matched 3D objects using
 
 Figure Reference: Udacity
 
-For calculating the TTC, it is necessary to find the distance to the closest Lidar point in the path of driving (ego lane). Also, to reduce the impact of erroneous points (outliers), median distance in direction of driving is calculated and using constant velocity model, TTC is computed as follws:
+For calculating the TTC, it is necessary to find the distance to the closest Lidar point in the path of driving (ego lane). Also, to reduce the impact of erroneous points (outliers), minimum distance point in direction of driving is calculated using ``` sortLidarPointsX ``` function which outputs the lidar points in increasing order. Further, using constant velocity model, TTC is computed as follows:
 
 ``` TTC = (1.0/framerate)*currXMean/(prevXMean - currXMean) ```
 
@@ -64,8 +64,57 @@ void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
 ```
 
 ## MP.3 Associate Keypoint Correspondences with Bounding Boxes
+Prepared the TTC computation based on camera measurements by associating keypoint correspondences to the bounding boxes which enclose them. All matches which satisfy this condition are added to a vector in the respective bounding box. This is achieved by function ``` clusterKptMatchesWithROI ```, that loops through every matched keypoint pair in an image and determines all the keypoints within one bounding box. Further it checks if these points lie in the current frame Region of interest and then associate it with the corresponding bounding box in the current frame. Following code represents the evaluation:
 
+```
+void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, std::vector<cv::DMatch> &kptMatches)
+{
+    for (cv::DMatch match : kptMatches) {
+        if (boundingBox.roi.contains(kptsCurr[match.trainIdx].pt)) {
+            boundingBox.kptMatches.push_back(match);
+        }
+    }
+}
 
+```
 ## MP.4 Compute Camera-based TTC
+Computed the time-to-collision (TTC) in second for all matched 3D objects using only keypoint correspondences from the matched bounding boxes between current and previous frame. This is implemented in the function ``` computeTTCCamera ```. Following images show the Camera measurements and equations used to calculate TTC.
+
+![Camera_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Image.png)
+
+![Camera_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Equations.png) 
+
+```
+void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, 
+                      std::vector<cv::DMatch> kptMatches, double frameRate, double &TTC, cv::Mat *visImg)
+{
+    vector<double> distRatios;
+    for (auto it1 = kptMatches.begin(); it1 != kptMatches.end() - 1; ++it1) {
+        cv::KeyPoint kpOuterCurr = kptsCurr.at(it1->trainIdx); 
+        cv::KeyPoint kpOuterPrev = kptsPrev.at(it1->queryIdx); 
+        for (auto it2 = kptMatches.begin() + 1; it2 != kptMatches.end(); ++it2) {
+            cv::KeyPoint kpInnerCurr = kptsCurr.at(it2->trainIdx); 
+            cv::KeyPoint kpInnerPrev = kptsPrev.at(it2->queryIdx);  
+            double distCurr = cv::norm(kpOuterCurr.pt - kpInnerCurr.pt);
+            double distPrev = cv::norm(kpOuterPrev.pt - kpInnerPrev.pt);
+            double minDist = 100.0;  // Threshold the calculated distRatios by requiring a minimum current distance between keypoints 
+            if (distPrev > std::numeric_limits<double>::epsilon() && distCurr >= minDist) {
+                double distRatio = distCurr / distPrev;
+                distRatios.push_back(distRatio);
+            }
+        }
+    }
+    if (distRatios.size() == 0)
+    {
+        TTC = std::numeric_limits<double>::quiet_NaN();
+        return;
+    }
+    std::sort(distRatios.begin(), distRatios.end());
+    double medianDistRatio = distRatios[distRatios.size() / 2];
+    TTC = (-1.0 / frameRate) / (1 - medianDistRatio);
+}
+
+```
+
 ## MP.5 Performance Evaluation 1
 ## MP.6 Performance Evaluation 2
