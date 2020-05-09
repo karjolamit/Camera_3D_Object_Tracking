@@ -41,7 +41,13 @@ Computed the time-to-collision (TTC) in seconds for all matched 3D objects using
 ![Lidar_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Image.png)
 
 ![Lidar_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Equations.png)
+
 Figure Reference: Udacity
+
+For calculating the TTC, it is necessary to find the distance to the closest Lidar point in the path of driving (ego lane). Also, to reduce the impact of erroneous points (outliers), median distance in direction of driving is calculated and using constant velocity model, TTC is computed as follws:
+
+``` TTC = (1.0/framerate)*currXMean/(prevXMean - currXMean) ```
+
 
 ## MP.3 Associate Keypoint Correspondences with Bounding Boxes
 ## MP.4 Compute Camera-based TTC
