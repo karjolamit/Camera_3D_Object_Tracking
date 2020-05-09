@@ -84,6 +84,10 @@ Computed the time-to-collision (TTC) in second for all matched 3D objects using 
 
 ![Camera_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Equations.png) 
 
+Figure Reference: Udacity
+
+Following code shows implementation. The distance ratios on keypoints matched between frames is used to find the rate of scale change within an image. This rate of scale change can be used to estimate the TTC using equation, ``` TTC = (-1.0 / frameRate) / (1 - medianDistRatio) ```
+
 ```
 void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, 
                       std::vector<cv::DMatch> kptMatches, double frameRate, double &TTC, cv::Mat *visImg)
