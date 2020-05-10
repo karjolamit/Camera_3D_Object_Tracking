@@ -1,4 +1,4 @@
-# Camera_3D_Object_Tracking (Collision Avoidance System- CAS)
+# Track an Object in 3D Space (Collision Avoidance System- CAS)
 ## MP.1 Match 3D Objects
 Implemented the method "matchBoundingBoxes", which takes as input both the previous and the current data frames and provides an output of the matched regions of interest IDs (i.e. the boxID property). The matches are the ones with the highest number of keypoint correspondences. Use of ``` std::multimap<int,int> ``` is done to track the pair of bounding box IDs. Further, keypoints per box are determined to find out the best matches between the frames. Following code represents the method explained:
 
