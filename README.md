@@ -123,6 +123,10 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
 ## MP.5 Performance Evaluation 1
 Find examples where the TTC estimate of the Lidar sensor does not seem plausible. Describe your observations and provide a sound argumentation why you think this happened.
 
+![MP_5](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/MP_5.PNG)
+
+From the above figure, it is clearly seen that all the vehicles are approaching an intersection with Red traffic light ON, meaning all vehciles will STOP. Also, the tail lights of all preceeding vehicle justify this fact. As per this observation, the TTC for Lidar must decrease than its previous instance in the frame. However, observing the values in following tables (MP.6), it can be inferred that there is some issue with the lidar measurements. This may be due to the presence of additional points (outliers) in the preceeding vehicle bounding box.
+
 ## MP.6 Performance Evaluation 2
 Run several detector / descriptor combinations and look at the differences in TTC estimation. Find out which methods perform best and also include several examples where camera-based TTC estimation is way off. As with Lidar, describe your observations again and also look into potential reasons.
 
