@@ -155,6 +155,10 @@ Based on the system response for different detector-descriptor configurations, f
 | FAST | BRIEF | 9.546581 | 9.894525 |
 | FAST | BRIEF | 8.398803 | 11.508075 |
 
+Graph:
+
+![TTC_1](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_1.png)
+
 2. BRISK + BRIEF: Based on measurement accuracy efficiency
 
 | Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
@@ -178,6 +182,10 @@ Based on the system response for different detector-descriptor configurations, f
 | BRISK | BRIEF | 9.546581 | 11.379207 |
 | BRISK | BRIEF | 8.398803 | 10.702170 |
 
+Graph:
+
+![TTC_2](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_2.PNG)
+
 3. BRISK + BRISK: Based on combined efficiency (time and measurement accuracy)
 
 | Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
@@ -200,5 +208,9 @@ Based on the system response for different detector-descriptor configurations, f
 | BRISK | BRISK | 9.516170 | 11.503045 |
 | BRISK | BRISK | 9.546581 | 9.293792 |
 | BRISK | BRISK | 8.398803 | 10.775890 |
+
+Graph:
+
+![TTC_3](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_3.PNG)
 
 From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 and 27.667923 & for BRISK+BRIEF, highest value estimated is 20.572493. The reason for this may be same as explained above for Lidar TTC.
