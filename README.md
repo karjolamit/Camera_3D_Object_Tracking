@@ -235,4 +235,4 @@ Graph:
 
 The averagre TTC is ~12 seconds and ~15 seconds for Lidar and Camera respectively.
 
-From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 and 27.667923 & for BRISK+BRIEF, highest value estimated is 20.572493. The reason for this may be same as explained above for Lidar TTC. Additionally, the plots show the trend of how both the TTC varies throughout all 18 instances of the image frame.  
+From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 s and 27.667923 s & for BRISK+BRIEF, highest value estimated is 20.572493 s. The reason for this may be same as explained above for Lidar TTC. Additionally, the plots show the trend of how both the TTC varies throughout all 18 instances of the image frame.  
