@@ -37,13 +37,13 @@ void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bb
 
 ## MP.2 Compute Lidar-based TTC
 Computed the time-to-collision (TTC) in seconds for all matched 3D objects using only ```Lidar measurements``` from the matched bounding boxes between current and previous frame. Following images show the Lidar measurements and equations used to calculate TTC.
-
-![Lidar_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Image.png)
-
-   ![Lidar_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Equations.png)
    
 <p align="center">
   <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Image.png">
+</p>
+
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Lidar_TTC_Equations.png">
 </p>
 
 Figure Reference: Udacity
@@ -84,9 +84,13 @@ void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint
 ## MP.4 Compute Camera-based TTC
 Computed the time-to-collision (TTC) in second for all matched 3D objects using only keypoint correspondences from the matched bounding boxes between current and previous frame. This is implemented in the function ``` computeTTCCamera ```. Following images show the Camera measurements and equations used to calculate TTC.
 
-![Camera_TTC_Image](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Image.png)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Image.png">
+</p>
 
-![Camera_TTC_Equations](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Equations.png) 
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/Camera_TTC_Equations.png">
+</p>
 
 Figure Reference: Udacity
 
@@ -127,7 +131,9 @@ void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPo
 ## MP.5 Performance Evaluation 1
 Find examples where the TTC estimate of the Lidar sensor does not seem plausible. Describe your observations and provide a sound argumentation why you think this happened.
 
-![MP_5](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/MP_5.PNG)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/MP_5.PNG">
+</p>
 
 From the above figure, it is clearly seen that all the vehicles are approaching an intersection with Red traffic light ON, meaning all vehciles will STOP. Also, the tail lights of all preceeding vehicle justify this fact. As per this observation, the TTC for Lidar must decrease than its previous instance in the frame. However, observing the values in following tables (MP.6), it can be inferred that there are some issues with the lidar measurements at certain instances. These implausible outcomes may be due to the presence of additional points (outliers) in the preceeding vehicle bounding box. The most out of the way measurement is the value > 16 seconds. This problem can be resolved by tuning variables like shrink factor and maxKeyPoints.
 
@@ -161,7 +167,9 @@ Based on the system response for different detector-descriptor configurations, f
 
 Graph:
 
-![TTC_1](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_1.png)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_1.png">
+</p>
 
 2. BRISK + BRIEF: Based on measurement accuracy efficiency
 
@@ -188,7 +196,9 @@ Graph:
 
 Graph:
 
-![TTC_2](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_2.PNG)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_2.PNG">
+</p>
 
 3. BRISK + BRISK: Based on combined efficiency (time and measurement accuracy)
 
@@ -215,6 +225,8 @@ Graph:
 
 Graph:
 
-![TTC_3](https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_3.PNG)
+<p align="center">
+  <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_3.PNG">
+</p>
 
 From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 and 27.667923 & for BRISK+BRIEF, highest value estimated is 20.572493. The reason for this may be same as explained above for Lidar TTC.
