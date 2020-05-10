@@ -125,3 +125,67 @@ Find examples where the TTC estimate of the Lidar sensor does not seem plausible
 
 ## MP.6 Performance Evaluation 2
 Run several detector / descriptor combinations and look at the differences in TTC estimation. Find out which methods perform best and also include several examples where camera-based TTC estimation is way off. As with Lidar, describe your observations again and also look into potential reasons.
+
+| Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
+| ------------- | --------------- | --------- | ---------- |
+| FAST | BRIEF | 12.515600 | 11.750258 |
+| FAST | BRIEF | 12.614245 | 11.758331 |
+| FAST | BRIEF | 14.091013 | 13.955042 |
+| FAST | BRIEF | 16.689386 | 13.130921 |
+| FAST | BRIEF | 15.008233 | 14.829752 |
+| FAST | BRIEF | 12.678716 | 13.594156 |
+| FAST | BRIEF | 14.984351 | 13.277444 |
+| FAST | BRIEF | 13.124118 | 12.774939 |
+| FAST | BRIEF | 13.024118 | 12.800778 |
+| FAST | BRIEF | 11.174641 | 13.009249 |
+| FAST | BRIEF | 12.808601 | 11.870213 |
+| FAST | BRIEF | 8.959780 | 11.525555 |
+| FAST | BRIEF | 9.964399 | 11.706558 |
+| FAST | BRIEF | 9.598630 | 10.645161 |
+| FAST | BRIEF | 8.573525 | 11.531169 |
+| FAST | BRIEF | 9.516170 | 10.323035 |
+| FAST | BRIEF | 9.546581 | 9.894525 |
+| FAST | BRIEF | 8.398803 | 11.508075 |
+
+| Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
+| ------------- | --------------- | --------- | ---------- |
+| BRISK | BRIEF | 12.515600 | 12.844751 | 
+| BRISK | BRIEF | 12.614245 | 16.861843 |
+| BRISK | BRIEF | 14.091013 | 11.667223 |
+| BRISK | BRIEF | 16.689386 | 20.572493 |
+| BRISK | BRIEF | 15.908233 | 19.705172 |
+| BRISK | BRIEF | 12.678716 | 17.564209 |
+| BRISK | BRIEF | 11.984351 | 15.580851 |
+| BRISK | BRIEF | 13.124118 | 18.745060 |
+| BRISK | BRIEF | 13.024118 | 15.458500 |
+| BRISK | BRIEF | 11.174641 | 11.480950 |
+| BRISK | BRIEF | 12.808601 | 13.363625 |
+| BRISK | BRIEF | 8.959780 | 14.307072 |
+| BRISK | BRIEF | 9.964390 | 12.326637 |
+| BRISK | BRIEF | 9.598630 | 10.945685 |
+| BRISK | BRIEF | 8.573525 | 11.628937 |
+| BRISK | BRIEF | 9.516170 | 12.173885 |
+| BRISK | BRIEF | 9.546581 | 11.379207 |
+| BRISK | BRIEF | 8.398803 | 10.702170 |
+
+
+| Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
+| ------------- | --------------- | --------- | ---------- |
+| BRISK | BRISK | 12.515600 | 13.408608 | 
+| BRISK | BRISK | 12.614245 | 21.527645 |
+| BRISK | BRISK | 14.091013 | 12.625001 |
+| BRISK | BRISK | 16.689386 | 15.203748 |
+| BRISK | BRISK | 15.908233 | 27.667923 |
+| BRISK | BRISK | 12.678716 | 18.311445 |
+| BRISK | BRISK | 11.984351 | 17.142694 |
+| BRISK | BRISK | 13.124118 | 16.099065 |
+| BRISK | BRISK | 13.024118 | 14.801027 |
+| BRISK | BRISK | 11.174641 | 13.929688 |
+| BRISK | BRISK | 12.808601 | 13.135876 |
+| BRISK | BRISK | 8.959780 | 11.340908 |
+| BRISK | BRISK | 9.964390 | 11.856502 |
+| BRISK | BRISK | 9.598630 | 12.397777 |
+| BRISK | BRISK | 8.573525 | 12.708913 |
+| BRISK | BRISK | 9.516170 | 11.503045 |
+| BRISK | BRISK | 9.546581 | 9.293792 |
+| BRISK | BRISK | 8.398803 | 10.775890 |
