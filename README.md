@@ -171,6 +171,8 @@ Graph:
   <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_1.png">
 </p>
 
+The averagre TTC is ~12 seconds for both; Lidar and Camera.  
+
 2. BRISK + BRIEF: Based on measurement accuracy efficiency
 
 | Detector Type | Descriptor Type | Lidar TTC | Camera TTC |
@@ -199,6 +201,8 @@ Graph:
 <p align="center">
   <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_2.PNG">
 </p>
+
+The averagre TTC is ~12 seconds and ~14 seconds for Lidar and Camera respectively.
 
 3. BRISK + BRISK: Based on combined efficiency (time and measurement accuracy)
 
@@ -229,4 +233,6 @@ Graph:
   <img width="460" height="300" src="https://github.com/karjolamit/Camera_3D_Object_Tracking/blob/master/TTC_3.PNG">
 </p>
 
-From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 and 27.667923 & for BRISK+BRIEF, highest value estimated is 20.572493. The reason for this may be same as explained above for Lidar TTC.
+The averagre TTC is ~12 seconds and ~15 seconds for Lidar and Camera respectively.
+
+From above tables, Camera TTC for BRISK+BRISK are as high as 21.527645 and 27.667923 & for BRISK+BRIEF, highest value estimated is 20.572493. The reason for this may be same as explained above for Lidar TTC. Additionally, the plots show the trend of how both the TTC varies throughout all 18 instances of the image frame.  
